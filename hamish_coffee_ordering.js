@@ -24,8 +24,6 @@ form.addEventListener('submit', (e) => {
   const orders = JSON.parse(localStorage.getItem('coffeeOrders') || '[]');
   orders.push(order);
   localStorage.setItem('coffeeOrders', JSON.stringify(orders));
-
-  alert('Order saved!');
   form.reset();
 });
 
@@ -48,7 +46,7 @@ loadBtn.addEventListener('click', () => {
       <h4>Order #${index + 1}</h4>
       <p><strong>Name:</strong> ${order.name}</p>
       <p><strong>Coffee:</strong> ${order.coffee}</p>
-      <p><strong>Size:</strong> ${order.size}</p>
+      <p><strong>Sugars:</strong> ${order.size}</p>
       <p><strong>Add-ons:</strong> ${order.addons.join(', ') || 'None'}</p>
       <p><small>${new Date(order.timestamp).toLocaleString()}</small></p>
       <hr/>
@@ -61,7 +59,3 @@ loadBtn.addEventListener('click', () => {
 const load_orders_btn = document.getElementById('load-orders');
 
 load_orders_btn.addEventListener('click', load_orders);
-
-function load_orders() {
-    alert('Loading orders!');
-}
